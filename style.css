@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.display{
+    height: 850px;
+    width: 400px;
+    background-color: black;
+    border-radius: 70px;
+}
+
+.screen{
+    height: 300px;
+    width: 400px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+}
+.number{
+    font-size: 90px;
+    color: white;
+}
+
+.button-field{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    height: 550px;
+   
+}
+
+.buttons{
+   
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+   
+    
+    gap: 15px;
+    margin-top: -70px;
+}
+
+button{
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    border: none;
+}
+
+#zero{
+    grid-column: 1/3;
+    width: 165px;
+    border-radius: 50px;
+    
+}
+
+#dot{
+    grid-column: 3/4;
+}
+
+#is{
+   grid-column: 4/5;
+}
+
+.line{
+    display: flex;
+    justify-content: center;
+    
+}
+
+hr{
+    margin-top: -30px;
+    
+    background-color: white;
+    width: 150px;
+    height: 5px;
+    border-radius: 25px;
+}
+
+.top {
+    
+}
+
+.bot{
+    width: 400px;
+    display: flex;
+    justify-content: end;
+    margin-right: 85px;
+}
+
+.notch{
+    background-color: rgb(44, 44, 44);
+    width: 160px;
+    height: 35px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+#ac,#lol,#rest {
+    background-color: #D4D4D2;
+    font-size: 40px;
+}
+
+#divide,#multiply,#subtract,#add,#is{
+    background-color: #FF9500;
+    font-size: 40px;
+    color: white;
+}
+#zero,#one,#two,#three,#four,#five,#six,#seven,#eight,#nine,#dot{
+    background-color: #505050;
+    color: white;
+    font-size: 40px;
+}
