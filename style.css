@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    
+    font-family: Arial, Helvetica, sans-serif;
 }
 html,body{
     height: 100%;
@@ -20,7 +20,7 @@ body{
     height: 850px;
     width: 400px;
     background-color: black;
-    border-radius: 70px;
+    border-radius: 50px;
 }
 
 .screen{
@@ -31,9 +31,33 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border-top-left-radius: 70px;
-    border-top-right-radius: 70px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
+
+.icons{
+    display: flex;
+    align-items: center;
+    
+    gap: 8px;
+    margin-right: 10px;
+    margin-bottom: -5px;
+}
+
+.lte{
+    height: 15px;
+    width: 15px;
+}
+
+.wifi{
+    height: 20px;
+    width:  20px;
+}
+.battery{
+    height: 30px;
+    width: 30px;
+}
+
 .number{
     font-size: 90px;
     color: white;
@@ -95,7 +119,17 @@ hr{
 }
 
 .top {
-    
+    display: grid;
+   width: 400px;
+   grid-template-columns: 1fr 1fr 1fr;
+   align-items: flex-end;
+   justify-items: center;
+}
+.clock{
+    color: white;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-bottom: -1px;
 }
 
 .bot{
@@ -111,11 +145,12 @@ hr{
     height: 35px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    
 }
 
 #ac,#lol,#rest {
     background-color: #D4D4D2;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #divide,#multiply,#subtract,#add,#is{
