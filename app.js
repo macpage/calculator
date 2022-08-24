@@ -82,7 +82,7 @@ for(let i = 0;i<lol.length;i++){
             
        
           if(!opActive){
-            num.innerHTML += parseInt(lol[i].innerHTML,10); 
+            num.innerHTML += parseFloat(lol[i].innerHTML,10); 
             
           } else {
             num.innerHTML = lol[i].innerHTML;
@@ -107,23 +107,23 @@ function opsOperate(){
     if(op == "+" && canOp){
         op = "";
         canOp =false;
-         add(parseInt(num.innerHTML),parseInt(arr[arr.length-1],10));
+         add(parseFloat(num.innerHTML),parseFloat(arr[arr.length-1],10));
          return num.innerHTML =  arr[arr.length-1]
          
     }
     else if(op == "-"){
         op = "";
-         subtract(parseInt(arr[arr.length-1],10),parseInt(num.innerHTML));
+         subtract(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
          return num.innerHTML =  arr[arr.length-1]
     }
     else if(op == "x"){
         op = "";
-         multiply(parseInt(arr[arr.length-1],10),parseInt(num.innerHTML));
+         multiply(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
          return num.innerHTML =  arr[arr.length-1]
     }
     else if(op == "/"){
         op = "";
-         divide(parseInt(arr[arr.length-1],10),parseInt(num.innerHTML));
+         divide(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
          return num.innerHTML =  arr[arr.length-1]
     }
 }
@@ -143,24 +143,24 @@ function operate(){
     opActive = true;
     if(op == "+"){
         op = "";
-         add(parseInt(num.innerHTML),parseInt(arr[arr.length-1],10));
+         add(parseFloat(num.innerHTML),parseFloat(arr[arr.length-1],10));
       
          return num.innerHTML =  arr[arr.length-1]
     }
     else if(op == "-"){
         op = "";
-         subtract(parseInt(arr[arr.length-1],10),parseInt(num.innerHTML));
+         subtract(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
          return num.innerHTML =  arr[arr.length-1]
     }
 
     else if(op == "x"){
         op = "";
-         multiply(parseInt(arr[arr.length-1],10),parseInt(num.innerHTML));
+         multiply(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
          return num.innerHTML =  arr[arr.length-1]
     }
     else if(op == "/"){
         op = "";
-         divide(parseInt(arr[arr.length-1],10),parseInt(num.innerHTML));
+         divide(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
          return num.innerHTML =  arr[arr.length-1]
     }
     
@@ -216,3 +216,15 @@ for(let i = 0; i < others.length; i++){
         }, 1000);
     })
 }
+
+let dot = document.querySelector("#dot");
+dot.addEventListener("click", ()=>{
+
+    num.innerHTML += ".";
+
+    dot.classList.add("btnAnim");
+
+    setTimeout(() => {
+        dot.classList.remove("btnAnim");
+    }, 1000);
+})
