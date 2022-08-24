@@ -15,6 +15,7 @@ function checkTime(i){
 }
 
 let opActive = false;
+let isActive = false;
 
 let num = document.querySelector(".number"); 
 
@@ -24,7 +25,7 @@ let op = "";
 
 for(let i = 0; i<ops.length;i++){
     ops[i].addEventListener("click", () => {
-        arr.push(num.innerHTML);
+        
         
         opActive = true;
         if(op == "+"){
@@ -32,7 +33,7 @@ for(let i = 0; i<ops.length;i++){
         } else {
            
         }
-        
+        arr.push(num.innerHTML);
         op =ops[i].innerHTML;
         return op;
         
@@ -57,7 +58,7 @@ for(let i = 0;i<lol.length;i++){
             num.innerHTML += parseInt(lol[i].innerHTML,10); 
           } else {
             num.innerHTML = lol[i].innerHTML;
-            opActive = false
+            opActive = false;
            
           }
            
@@ -81,11 +82,15 @@ is.addEventListener("click",  operate)
 
 
 function operate(){
-    
+    opActive = true;
     if(op == "+"){
+        op = "";
          add(parseInt(num.innerHTML),parseInt(arr[arr.length-1],10));
          return num.innerHTML =  arr[arr.length-1]
     }
+    
+    
+    
 }
 
 function add(num,num2){
