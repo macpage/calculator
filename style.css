@@ -148,7 +148,7 @@ hr{
     
 }
 
-#ac,#lol,#rest {
+#ac,#del,#rest {
     background-color: #D4D4D2;
     font-size: 30px;
 }
@@ -163,3 +163,38 @@ hr{
     color: white;
     font-size: 40px;
 }
+
+.anim{
+    background-color: #FF9500;
+    
+    color: white;
+    font-size: 100px;
+    animation: fadeIn 1s;
+}
+
+.btnAnim{
+    background-color: #b0b0b0;
+    animation: fadeIn2 1s;
+}
+
+.btnAnim2{
+    background-color: #D4D4D2;
+    animation: fadeIn3 1s;
+}
+
+@keyframes fadeIn {
+    from {background-color: white;
+        color: #FF9500;}
+    to{background-color: #FF9500;
+        color: white;}
+  }
+
+  @keyframes fadeIn2 {
+    from {background-color: #b0b0b0}
+    to{background-color: #505050}
+  }
+
+  @keyframes fadeIn3 {
+    from {background-color: #ffffff}
+    to{background-color: #D4D4D2}
+  }
