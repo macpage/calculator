@@ -30,8 +30,8 @@ for(let i = 0; i<ops.length;i++){
         opActive = true;
         if(op == "+"){
             operate();
-        } else {
-           
+        } else if(op == "-"){
+            operate();
         }
         arr.push(num.innerHTML);
         op =ops[i].innerHTML;
@@ -62,17 +62,6 @@ for(let i = 0;i<lol.length;i++){
            
           }
            
-        
-        
-        
-        if(op == "+"){
-            
-            
-            
-        }
-        else if(op == "-"){
-            subtract(parseInt(arr[arr.length-2],10),parseInt(arr[arr.length-1],10));
-        }
     });
     
 }
@@ -86,6 +75,11 @@ function operate(){
     if(op == "+"){
         op = "";
          add(parseInt(num.innerHTML),parseInt(arr[arr.length-1],10));
+         return num.innerHTML =  arr[arr.length-1]
+    }
+    else if(op == "-"){
+        op = "";
+         subtract(parseInt(arr[arr.length-1],10),parseInt(num.innerHTML));
          return num.innerHTML =  arr[arr.length-1]
     }
     
