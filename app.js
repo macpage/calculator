@@ -107,6 +107,37 @@ for(let i = 0;i<lol.length;i++){
     
 }
 
+addEventListener("keypress", (e)=>{
+   
+
+    let n = num.innerHTML.length;
+            
+   if(!isNaN(e.key)){
+    if(!opActive){
+      if(n>=9){
+
+      }else{
+        num.innerHTML += e.key;
+      }
+      
+      
+    } else {
+        num.innerHTML = e.key;
+      opActive = false;
+     
+    }
+
+    canOp = true;
+
+    
+    
+    if(num.innerHTML.length>5){
+      num.style.fontSize = "65px"
+    }  
+   }    
+
+})
+
 let is = document.querySelector("#is");
 is.addEventListener("click",  operate)
 
@@ -161,7 +192,10 @@ function opsOperate(){
     }
     else if(op == "/"){
         op = "";
-         divide(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
+        if(parseFloat(num.innerHTML) == 0){
+            return num.innerHTML = "Error";
+        } else{
+                     divide(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
          if(arr[arr.length-1].toString().length>9){
             
           let e = arr[arr.length-1].toExponential(0);
@@ -172,6 +206,10 @@ function opsOperate(){
               }  
             return num.innerHTML = arr[arr.length-1];
           }
+
+        }
+
+          
     }
 }
 
@@ -236,7 +274,10 @@ function operate(){
     else if(op == "/"){
         op = "";
          divide(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
-         if(arr[arr.length-1].toString().length>9){
+         if(parseFloat(num.innerHTML) == 0){
+            return num.innerHTML = "Error";
+         } else {
+            if(arr[arr.length-1].toString().length>9){
             
           let e = arr[arr.length-1].toExponential(0);
             return num.innerHTML = e;
@@ -246,6 +287,10 @@ function operate(){
               }  
             return num.innerHTML = arr[arr.length-1];
           }
+         }
+         
+
+          
     }
     
     
@@ -269,7 +314,10 @@ function multiply(num,num2){
 
 function divide(num,num2){
     arr.push(num/num2)
-    return num / num2;
+   
+       return num / num2; 
+   
+    
 }
 
 
