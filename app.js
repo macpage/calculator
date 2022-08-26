@@ -276,6 +276,13 @@ function divide(num,num2){
 let ac = document.querySelector("#ac");
 
 ac.addEventListener("click", ()=>{
+    for(let j = 0; j<ops.length;j++){
+        if(ops[j].style.backgroundColor = "white"){
+            ops[j].style.backgroundColor = "rgb(255, 149, 0)";
+            ops[j].style.color = "white";
+        }
+    }
+    op = "";
     arr = [];
     arr[0] = 0;
     num.innerHTML = arr[0];
@@ -313,27 +320,31 @@ let noDot = false;
 let dot = document.querySelector("#dot");
 dot.addEventListener("click", ()=>{
 
-    let n = num.innerHTML;
     
-    for(let i = 0; i < n.length;i++){
+    let isDot = false;
+
+          let n = num.innerHTML;
+           for(let i = 0; i < n.length;i++){
         if(n[i] == "."){
-            noDot = false;
+           isDot = true;
         }else{
-            noDot = true;
+            
         }
     }
-    
-    if(noDot){
-     
-     if(!opActive){
+ 
+     if(!isDot){
+             if(!opActive){
        num.innerHTML += ".";   
+ 
         
       } else {
         num.innerHTML = "0.";
         opActive = false;
        
       }
-    }
+     }
+
+    
     
    
 
@@ -344,4 +355,11 @@ dot.addEventListener("click", ()=>{
     }, 1000);
 })
 
+let percent = document.querySelector("#percent");
 
+percent.addEventListener("click", ()=>{
+    if(op == "" || op == "x" || op == "/"){
+
+        num.innerHTML /= 100;
+    }
+})
