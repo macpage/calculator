@@ -14,7 +14,7 @@ function checkTime(i){
     return i;
 }
 
-let opActive = false;
+let opActive = true;
 let isActive = false;
 
 let num = document.querySelector(".number"); 
@@ -76,13 +76,16 @@ for(let i = 0;i<lol.length;i++){
             }, 1000);
 
         
-            if(num.innerHTML == 0){
-                num.innerHTML = "";
-            }
+            let n = num.innerHTML.length;
             
        
           if(!opActive){
-            num.innerHTML += parseFloat(lol[i].innerHTML,10); 
+            if(n>=9){
+
+            }else{
+               num.innerHTML += parseFloat(lol[i].innerHTML,10);  
+            }
+            
             
           } else {
             num.innerHTML = lol[i].innerHTML;
@@ -91,6 +94,14 @@ for(let i = 0;i<lol.length;i++){
           }
 
           canOp = true;
+
+          
+          
+          if(num.innerHTML.length>5){
+            num.style.fontSize = "65px"
+          }  
+          
+          
            
     });
     
@@ -108,23 +119,59 @@ function opsOperate(){
         op = "";
         canOp =false;
          add(parseFloat(num.innerHTML),parseFloat(arr[arr.length-1],10));
-         return num.innerHTML =  arr[arr.length-1]
+         if(arr[arr.length-1].toString().length>9){
+            
+          let e = arr[arr.length-1].toExponential(0);
+            return num.innerHTML = e;
+          } else{
+            if(arr[arr.length-1].toString().length>5){
+                num.style.fontSize = "65px"
+              }  
+            return num.innerHTML = arr[arr.length-1];
+          }
          
     }
     else if(op == "-"){
         op = "";
          subtract(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
-         return num.innerHTML =  arr[arr.length-1]
+         if(arr[arr.length-1].toString().length>9){
+            
+          let e = arr[arr.length-1].toExponential(0);
+            return num.innerHTML = e;
+          } else{
+            if(arr[arr.length-1].toString().length>5){
+                num.style.fontSize = "65px"
+              }  
+            return num.innerHTML = arr[arr.length-1];
+          }
     }
     else if(op == "x"){
         op = "";
          multiply(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
-         return num.innerHTML =  arr[arr.length-1]
+         if(arr[arr.length-1].toString().length>9){
+            
+          let e = arr[arr.length-1].toExponential(0);
+            return num.innerHTML = e;
+          } else{
+            if(arr[arr.length-1].toString().length>5){
+                num.style.fontSize = "65px"
+              }  
+            return num.innerHTML = arr[arr.length-1];
+          }
     }
     else if(op == "/"){
         op = "";
          divide(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
-         return num.innerHTML =  arr[arr.length-1]
+         if(arr[arr.length-1].toString().length>9){
+            
+          let e = arr[arr.length-1].toExponential(0);
+            return num.innerHTML = e;
+          } else{
+            if(arr[arr.length-1].toString().length>5){
+                num.style.fontSize = "65px"
+              }  
+            return num.innerHTML = arr[arr.length-1];
+          }
     }
 }
 
@@ -144,24 +191,61 @@ function operate(){
     if(op == "+"){
         op = "";
          add(parseFloat(num.innerHTML),parseFloat(arr[arr.length-1],10));
-      
-         return num.innerHTML =  arr[arr.length-1]
+         if(arr[arr.length-1].toString().length>9){
+            
+          let e = arr[arr.length-1].toExponential(0);
+            return num.innerHTML = e;
+          } else{
+            if(arr[arr.length-1].toString().length>5){
+                num.style.fontSize = "65px"
+              }  
+            return num.innerHTML = arr[arr.length-1];
+          }
+         
+          
     }
     else if(op == "-"){
         op = "";
          subtract(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
-         return num.innerHTML =  arr[arr.length-1]
+         if(arr[arr.length-1].toString().length>9){
+            
+          let e = arr[arr.length-1].toExponential(0);
+            return num.innerHTML = e;
+          } else{
+            if(arr[arr.length-1].toString().length>5){
+                num.style.fontSize = "65px"
+              }  
+            return num.innerHTML = arr[arr.length-1];
+          }
     }
 
     else if(op == "x"){
         op = "";
          multiply(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
-         return num.innerHTML =  arr[arr.length-1]
+         if(arr[arr.length-1].toString().length>9){
+            
+          let e = arr[arr.length-1].toExponential(0);
+            return num.innerHTML = e;
+          } else{
+            if(arr[arr.length-1].toString().length>5){
+                num.style.fontSize = "65px"
+              }  
+            return num.innerHTML = arr[arr.length-1];
+          }
     }
     else if(op == "/"){
         op = "";
          divide(parseFloat(arr[arr.length-1],10),parseFloat(num.innerHTML));
-         return num.innerHTML =  arr[arr.length-1]
+         if(arr[arr.length-1].toString().length>9){
+            
+          let e = arr[arr.length-1].toExponential(0);
+            return num.innerHTML = e;
+          } else{
+            if(arr[arr.length-1].toString().length>5){
+                num.style.fontSize = "65px"
+              }  
+            return num.innerHTML = arr[arr.length-1];
+          }
     }
     
     
@@ -195,6 +279,10 @@ ac.addEventListener("click", ()=>{
     arr = [];
     arr[0] = 0;
     num.innerHTML = arr[0];
+    opActive = true;
+    if(num.innerHTML.length<=5){
+        num.style.fontSize = "90px"
+      }  
 })
 
 let del = document.querySelector("#del");
@@ -202,7 +290,11 @@ del.addEventListener("click", ()=> {
     num.innerHTML = num.innerHTML.substring(0,num.innerHTML.length -1 );
     if(num.innerHTML.length <= 0){
         num.innerHTML = 0;
+        opActive = true;
     }
+    if(num.innerHTML.length<=5){
+        num.style.fontSize = "90px"
+      }  
 })
 
 
@@ -217,10 +309,33 @@ for(let i = 0; i < others.length; i++){
     })
 }
 
+let noDot = false;
 let dot = document.querySelector("#dot");
 dot.addEventListener("click", ()=>{
 
-    num.innerHTML += ".";
+    let n = num.innerHTML;
+    
+    for(let i = 0; i < n.length;i++){
+        if(n[i] == "."){
+            noDot = false;
+        }else{
+            noDot = true;
+        }
+    }
+    
+    if(noDot){
+     
+     if(!opActive){
+       num.innerHTML += ".";   
+        
+      } else {
+        num.innerHTML = "0.";
+        opActive = false;
+       
+      }
+    }
+    
+   
 
     dot.classList.add("btnAnim");
 
@@ -228,3 +343,5 @@ dot.addEventListener("click", ()=>{
         dot.classList.remove("btnAnim");
     }, 1000);
 })
+
+
